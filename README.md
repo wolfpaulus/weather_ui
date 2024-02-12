@@ -1,0 +1,3 @@
+Sedona Weather ...
+
+[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwolfpaulus%2Fweather_ui%2Fmain%2Farm%2Faz_deploy.json)
