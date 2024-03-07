@@ -5,9 +5,6 @@
 import streamlit as st
 from data import get_data, last_updated, DATA_FILE
 
-import os
-st.warning(os.getcwd()) 
-
 forecast = get_data()
 
 st.title("Weather Data")

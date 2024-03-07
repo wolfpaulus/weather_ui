@@ -25,7 +25,6 @@ def get_data(data_url: str = DATA_URL, data_file: str = DATA_FILE) -> dict:
             # as a backup, save the forecast in a file
             with open(data_file, "w", encoding="utf-8") as file:
                 dump(forecast, file)
-            st.info("forecast backup created", icon="📂")    
             return forecast
         with open(data_file, "r", encoding="utf-8") as file:
             forecast = load(file)
