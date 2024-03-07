@@ -3,14 +3,16 @@
     Author: Wolf Paulus
 """
 import streamlit as st
-from data import get_data, last_updated
+from data import get_data, last_updated, DATA_FILE
 
+import os
+st.warning(os.getcwd()) 
 
 forecast = get_data()
 
 st.title("Weather Data")
 st.subheader(f"Updated: {last_updated(forecast)}")
 st.json(forecast)
-with open("../data/weather.json", encoding="utf-8") as f:
+with open(DATA_FILE, encoding="utf-8") as f:
     st.sidebar.download_button(
         "Download JSON", f, file_name="sedona_weather.json", mime="application/json", type="primary")

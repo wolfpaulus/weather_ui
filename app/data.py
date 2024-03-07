@@ -8,6 +8,9 @@ from dateutil import tz
 from requests import get
 import streamlit as st
 
+# On GitHub, the 'weather_ui' repo has all the streamlit relevant stuff in the 'app' directory.
+# On streamlit's app server, "/mount/src/weather_ui/" is the working directory
+# Therefore the path to the data file should be "./app/data/weather.json"
 
 DATA_URL = "https://api.weather.gov/gridpoints/FGZ/67,74/forecast"
 DATA_FILE = "./app/data/weather.json"
