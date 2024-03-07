@@ -12,7 +12,8 @@ st.set_page_config(
     page_icon="🏜️",
 )
 import os
-print(os.getcwd())
+st.warning(os.getcwd())
+
 forecast = get_data()
 periods = forecast["properties"]["periods"]
 
