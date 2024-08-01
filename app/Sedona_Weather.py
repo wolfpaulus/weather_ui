@@ -13,11 +13,12 @@ hide_github_icon = """
   visibility: hidden;
 }
 """
-st.markdown(hide_github_icon, unsafe_allow_html=True)
 st.set_page_config(
     page_title="Sedona Weather",
     page_icon="🏜️",
 )
+st.markdown(hide_github_icon, unsafe_allow_html=True)
+
 
 forecast = get_data()
 periods = forecast["properties"]["periods"]
