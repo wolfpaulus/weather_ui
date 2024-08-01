@@ -7,18 +7,20 @@ import streamlit as st
 import altair as alt
 from data import reload_data, get_data, last_updated
 
-# Add custom CSS to hide the GitHub icon
-hide_github_icon = """
-#GithubIcon {
-  visibility: hidden;
-}
-"""
+
 st.set_page_config(
     page_title="Sedona Weather",
     page_icon="🏜️",
 )
-st.markdown(hide_github_icon, unsafe_allow_html=True)
-
+# Add custom CSS to hide the Header
+st.markdown(
+    """
+    <style>
+        header { visibility: hidden; }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 forecast = get_data()
 periods = forecast["properties"]["periods"]
@@ -34,7 +36,8 @@ with st.container(border=True):
     col1, col2, col3 = st.columns(3)
     col1.metric("Temperature", f"{periods[0]['temperature']} °F")
     col2.metric("Wind", f"{periods[0]['windSpeed']}")
-    col3.metric("Rain Chance", f"{periods[0]['probabilityOfPrecipitation']['value']} %")
+    col3.metric("Rain Chance", f"{
+                periods[0]['probabilityOfPrecipitation']['value']} %")
 
 updat_btn = st.sidebar.button("Update", type="primary", on_click=reload_data)
 columns = ["isDaytime", "temperature", "name", "wind", "shortForecast"]
