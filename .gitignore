@@ -1,2 +1,4 @@
 .DS_Store
 app/__pycache__/
+.venv/
+.pytest_cache/

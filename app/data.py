@@ -44,7 +44,7 @@ def reload_data() -> None:
 
 def last_updated(forecast: dict) -> str:
     """ returns a display string of the last update timestamp """
-    dtime = datetime.fromisoformat(forecast['properties']['updated'])
+    dtime = datetime.fromisoformat(forecast['properties']['updateTime'])
     dtime = dtime.replace(tzinfo=tz.gettz('UTC')).astimezone(
         tz.gettz("MST"))  # tz.gettz('America/Arizona'))
-    return dtime.strftime('%A, %B %-d, %Y %-I:%-M:%-S %p %Z')
+    return dtime.strftime('%A, %B %-d, %Y %-I:%M:%S %p %Z')

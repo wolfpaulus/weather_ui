@@ -26,7 +26,7 @@ with st.container(border=True):
     col1, col2, col3 = st.columns(3)
     col1.metric("Temperature", f"{periods[0]['temperature']} °F")
     col2.metric("Wind", f"{periods[0]['windSpeed']}")
-    col3.metric("Humidity", f"{periods[0]['relativeHumidity']['value']} %")
+    col3.metric("Rain Chance", f"{periods[0]['probabilityOfPrecipitation']['value']} %")
 
 updat_btn = st.sidebar.button("Update", type="primary", on_click=reload_data)
 columns = ["isDaytime", "temperature", "name", "wind", "shortForecast"]
