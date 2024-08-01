@@ -7,6 +7,13 @@ import streamlit as st
 import altair as alt
 from data import reload_data, get_data, last_updated
 
+# Add custom CSS to hide the GitHub icon
+hide_github_icon = """
+#GithubIcon {
+  visibility: hidden;
+}
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
 st.set_page_config(
     page_title="Sedona Weather",
     page_icon="🏜️",
