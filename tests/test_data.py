@@ -2,10 +2,10 @@
 Test the data module.
 Author: Wolf Paulus (wolf@paulus.com)
 """
-from unittest import TestCase
-from data import get_data
 from os.path import exists, join
 from os import remove
+from unittest import TestCase
+from data import get_data
 
 
 class Test(TestCase):
@@ -14,6 +14,8 @@ class Test(TestCase):
             fetching new data and pooking around a little
         """
         path_to_data_file = join("app", "data", "weather.json")
+        get_data.clear()
+
         if exists(path_to_data_file):
             remove(path_to_data_file)
         assert False == exists(path_to_data_file)

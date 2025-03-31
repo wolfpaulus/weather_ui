@@ -12,7 +12,7 @@ import streamlit as st
 # On streamlit's app server, "/mount/src/weather_ui/" is the working directory
 # Therefore the path to the data file should be "./app/data/weather.json"
 
-DATA_URL = "https://api.weather.gov/gridpoints/FGZ/67,74/forecast"
+DATA_URL = "https://api.weather.gov/gridpoints/FGZ/68,75/forecast"
 DATA_FILE = "./app/data/weather.json"
 
 
@@ -46,5 +46,6 @@ def last_updated(forecast: dict) -> str:
     """ returns a display string of the last update timestamp """
     dtime = datetime.fromisoformat(forecast['properties']['updateTime'])
     dtime = dtime.replace(tzinfo=tz.gettz('UTC')).astimezone(
-        tz.gettz("MST"))  # tz.gettz('America/Arizona'))
+        #tz.gettz("MST"))
+        tz.gettz('America/Arizona'))
     return dtime.strftime('%A, %B %-d, %Y %-I:%M:%S %p %Z')
