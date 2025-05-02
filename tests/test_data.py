@@ -9,16 +9,18 @@ from data import get_data
 
 
 class Test(TestCase):
+    """ Test the data module. """
+
     def test_data_acquisition(self):
         """
             fetching new data and pooking around a little
         """
-        path_to_data_file = join("app", "data", "weather.json")
+        path_to_data_file = join("src", "dta", "weather.json")
         get_data.clear()
 
         if exists(path_to_data_file):
             remove(path_to_data_file)
-        assert False == exists(path_to_data_file)
+        assert not exists(path_to_data_file)
         forecast = get_data()
         assert exists(path_to_data_file)
         periods = forecast["properties"]["periods"]

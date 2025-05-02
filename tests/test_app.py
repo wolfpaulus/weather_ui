@@ -6,13 +6,13 @@ from unittest import TestCase
 from streamlit.testing.v1 import AppTest
 
 
-class Test(TestCase):    
+class Test(TestCase):
     def test_ui_title_and_header(self):
         """
         find out more about how to test streamlit apps:
         https://docs.streamlit.io/library/api-reference/app-testing
         """
-        at = AppTest.from_file("./app/Sedona_Weather.py")
+        at = AppTest.from_file("./src/app.py")
         at.run()
 
         assert at.title[0].value.startswith("Weather Forecast")

@@ -1,13 +1,31 @@
-{   "terminal.integrated.fontSize": 16,
-    "python.terminal.activateEnvironment": true, 
-    
+{
+    "terminal.integrated.fontSize": 16,
+    "python.terminal.activateEnvironment": true,
     "python.testing.pytestArgs": [
         "tests"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.testing.pytestPath": "pytest",
+    "python.analysis.typeCheckingMode": "off",
     "python.analysis.extraPaths": [
-        "./app"
+        "./src"
     ],
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "autopep8.args": [
+        "--max-line-length=120"
+    ],
+    "pylint.args": [
+        "--max-line-length=120"
+    ],
+    "pylint.severity": {
+        "convention": "Information",
+        "error": "Error",
+        "fatal": "Error",
+        "refactor": "Hint",
+        "warning": "Warning",
+        "info": "Information"
+    }
 }
