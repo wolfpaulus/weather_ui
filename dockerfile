@@ -7,10 +7,10 @@ RUN apt-get update && \
     ln -fs /usr/share/zoneinfo/America/Phoenix /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
 
-COPY . /wordgame
-RUN pip install --no-cache-dir --upgrade -r /wordgame/requirements.txt
-RUN chmod +x /wordgame/healthcheck.sh
-WORKDIR /wordgame/
+COPY . /weather
+RUN pip install --no-cache-dir --upgrade -r /weather/requirements.txt
+RUN chmod +x /weather/healthcheck.sh
+WORKDIR /weather/
 
 EXPOSE 8000
 
@@ -18,6 +18,6 @@ EXPOSE 8000
 #  ensures that the python output is sent straight to terminal (e.g. the container log) without being first buffered
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=/wordgame
+ENV PYTHONPATH=/weather
 
-CMD ["python3.13",  "-m", "streamlit", "run", "--server.port", "8000", "src/app.py"]
+CMD ["python3.13",  "-m", "streamlit", "run", "--server.port", "8000", "app/Sedona_Weather.py"]

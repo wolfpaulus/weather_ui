@@ -46,9 +46,7 @@ jobs:
 
       - name: Lint with autopep8
         run: |
-          autopep8 --exit-code --recursive --diff --aggressive --max-line-length 120 ./src
+          autopep8 --exit-code --recursive --diff --aggressive --max-line-length 120 ./app
 
       - name: Test with pytest
         run: pytest
-        env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
