@@ -1,6 +1,6 @@
-""" 
+"""
     Obtain Weather Forecast
-    Author: Wolf Paulus 
+    Author: Wolf Paulus
 """
 from json import dump, load
 from datetime import datetime
@@ -16,7 +16,7 @@ DATA_URL = "https://api.weather.gov/gridpoints/FGZ/68,75/forecast"
 DATA_FILE = "./src/dta/weather.json"
 
 
-@st.cache_data(show_spinner="Fetching data from API...", ttl=60*10)
+@st.cache_data(show_spinner="Fetching data from API...", ttl=60 * 10)
 def get_data(data_url: str = DATA_URL, data_file: str = DATA_FILE) -> dict:
     """ Fetch data from a file or the api. """
     try:

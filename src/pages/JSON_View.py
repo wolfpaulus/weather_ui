@@ -1,5 +1,5 @@
-""" 
-    Streamlit front-end (JSON View) for api.weather.gov 
+"""
+    Streamlit front-end (JSON View) for api.weather.gov
     Author: Wolf Paulus
 """
 import streamlit as st

@@ -15,7 +15,7 @@
         "editor.defaultFormatter": "ms-python.autopep8"
     },
     "autopep8.args": [
-        "--max-line-length=120"
+        "--max-line-length=120","--aggressive"
     ],
     "pylint.args": [
         "--max-line-length=120"

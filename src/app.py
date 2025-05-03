@@ -1,5 +1,5 @@
 """
-    Streamlit front-end for api.weather.gov 
+    Streamlit front-end for api.weather.gov
     Author: Wolf Paulus
 """
 
