@@ -15,16 +15,18 @@ name: docker-publish
 env:
   REGISTRY: ghcr.io # GitHub Container Registry
   IMAGE_NAME: ${{ github.repository }} # github.repository as <account>/<repo>
-
+ 
 on:
-  workflow_run:
-    workflows: [run-tests]
-    types:
-      - completed
-
+    push:
+      branches: ["main"]
+    pull_request:
+      branches: ["main"]
+  
+permissions:
+  contents: read
+  
 jobs:
   publish-docker-image:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
