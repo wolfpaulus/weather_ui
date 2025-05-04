@@ -3,7 +3,7 @@
 
 [![run-tests](https://github.com/wolfpaulus/wordgame/actions/workflows/python-test.yml/badge.svg)](https://github.com/wolfpaulus/weather_ui/actions/workflows/python-test.yml)
 [![docker-publish](https://github.com/wolfpaulus/weather_ui/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/wolfpaulus/weather_ui/actions/workflows/docker-publish.yml)
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/u221350-c5bfe1afc720f0673fe6d0e2)](https://weather.erau.cloud)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m800472534-ad5b8380ea522657d68dad13)](https://weather.erau.cloud)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 
