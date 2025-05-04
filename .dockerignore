@@ -1,6 +1,5 @@
 /**
 !/.streamlit
-!/app
+!/src
 !requirements.txt
 !healthcheck.sh
-!words.txt

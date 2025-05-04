@@ -20,4 +20,4 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/weather
 
-CMD ["python3.13",  "-m", "streamlit", "run", "--server.port", "8000", "src/app.py"]
+CMD ["python3.13",  "-m", "streamlit", "run", "--server.port", "8000", "src/Forecast.py"]

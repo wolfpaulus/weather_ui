@@ -5,7 +5,7 @@
 #
 # This workflow will build a docker image and publish it to the GitHub Container Registry
 # For more information see: https://docs.github.com/en/actions/guides/publishing-docker-images
-# 
+#
 # This workflow creates a Multi-platform image with GitHub Actions, for linux/amd64,linux/arm64/v8
 # The following resources were very helpful:
 # https://collabnix.com/error-multiple-platforms-feature-is-currently-not-supported-for-docker-driver/
@@ -15,16 +15,17 @@ name: docker-publish
 env:
   REGISTRY: ghcr.io # GitHub Container Registry
   IMAGE_NAME: ${{ github.repository }} # github.repository as <account>/<repo>
- 
+
 on:
-    push:
-      branches: ["main"]
-    pull_request:
-      branches: ["main"]
-  
+  workflow_run:
+    workflows: [run-tests]
+    types:
+      - completed
+
+
 permissions:
   contents: read
-  
+
 jobs:
   publish-docker-image:
     runs-on: ubuntu-latest
@@ -33,14 +34,14 @@ jobs:
       packages: write
       attestations: write
       id-token: write
-    
+
     steps:
       # QEMU is a generic and open source machine & userspace emulator and virtualizer.
       # Buildx is a Docker CLI plugin for extended build capabilities with BuildKit.
       # It provides the same functionality as docker build with many new features.
       # The docker/setup-qemu-action action sets up QEMU for use in GitHub Actions.
       # The docker/setup-buildx-action action sets up Docker Buildx for use in GitHub Actions.
-      # The docker/build-push-action action builds and pushes Docker images to a registry.            
+      # The docker/build-push-action action builds and pushes Docker images to a registry.
       - name: convert IMAGE_NAME to lowercase, setup QEMU and Buildx
         run: |
           echo "REGISTRY=${REGISTRY}" >> $GITHUB_ENV
@@ -60,7 +61,7 @@ jobs:
         with:
             registry: ${{ env.REGISTRY }}
             username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}          
+            password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
@@ -78,7 +79,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-      
+
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
